@@ -1,0 +1,54 @@
+% A simple LaTeX template for lab reports in TDT4258 Energy Efficient Computer Design
+% by Yaman Umuroglu (yamanu@idi.ntnu.no)
+% Feel free to customize the style as you see fit, but the chapters/sections mentioned in the
+% template should be included with the appropriate content.
+
+\documentclass[abstract=on]{scrreprt}
+\usepackage[utf8]{inputenc}
+
+\usepackage{array}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[export]{adjustbox}
+
+% Edit the meta.tex file to change title, group number and author names
+\input{meta.tex}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\scr@startchapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
+
+\begin{document}
+% The title page, edit if you want to customize it
+\input{title.tex}
+
+
+% Main matter - edit corresponding file under content/ to change
+
+\pagenumbering{roman}
+\setcounter{page}{2}
+\input{content/other/abstract.tex}
+\input{content/other/sammendrag.tex}
+\input{content/other/acknowledgements.tex}
+
+\tableofcontents
+
+\input{content/1-introduction.tex}
+\pagenumbering{arabic}
+\input{content/2-background.tex}
+\input{content/3-methodology.tex}
+\input{content/4-results.tex}
+\input{content/5-future-work.tex}
+\input{content/6-conclusion.tex}
+
+\input{content/appendix/a-manual.tex}
+\input{content/appendix/b-work-plan.tex}
+
+% Bibliography - edit references.bib and use the \cite command in text
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
